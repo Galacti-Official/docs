@@ -28,17 +28,17 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about/history" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/about/history" className="text-xs text-white/75 hover:text-white transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/about/mission" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/about/mission" className="text-xs text-white/75 hover:text-white transition-colors">
                   Mission & Values
                 </Link>
               </li>
               <li>
-                <Link href="/about/team" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/about/team" className="text-xs text-white/75 hover:text-white transition-colors">
                   Team
                 </Link>
               </li>
@@ -52,32 +52,32 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/transparency" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/transparency" className="text-xs text-white/75 hover:text-white transition-colors">
                   Overview
                 </Link>
               </li>
               <li>
-                <Link href="/transparency/structure" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/transparency/structure" className="text-xs text-white/75 hover:text-white transition-colors">
                   Structure
                 </Link>
               </li>
               <li>
-                <Link href="/transparency/roadmap" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/transparency/roadmap" className="text-xs text-white/75 hover:text-white transition-colors">
                   Roadmap
                 </Link>
               </li>
               <li>
-                <Link href="/transparency/reports" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/transparency/reports" className="text-xs text-white/75 hover:text-white transition-colors">
                   Reports
                 </Link>
               </li>
               <li>
-                <Link href="/transparency/policies" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/transparency/policies" className="text-xs text-white/75 hover:text-white transition-colors">
                   Policies
                 </Link>
               </li>
               <li>
-                <Link href="/transparency/funding" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/transparency/funding" className="text-xs text-white/75 hover:text-white transition-colors">
                   Funding
                 </Link>
               </li>
@@ -116,7 +116,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/projects" className="text-xs text-white/75 hover:text-white transition-colors">
                   Projects
                 </Link>
               </li>
@@ -145,7 +145,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/report-abuse" className="text-xs text-white/75 hover:text-white transition-colors">
+                <Link href="https://galacti.org/report-abuse" className="text-xs text-white/75 hover:text-white transition-colors">
                   Report Abuse
                 </Link>
               </li>
@@ -171,13 +171,13 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex space-x-4">
-            <Link href="/sitemap" className="text-xs text-white/50 hover:text-white transition-colors">
+            <Link href="https://galacti.org//sitemap" className="text-xs text-white/50 hover:text-white transition-colors">
               Sitemap
             </Link>
-            <Link href="https://docs.galacti.org/terms" className="text-xs text-white/50 hover:text-white transition-colors">
+            <Link href="/terms" className="text-xs text-white/50 hover:text-white transition-colors">
               Terms
             </Link>
-            <Link href="https://docs.galacti.org/privacy" className="text-xs text-white/50 hover:text-white transition-colors">
+            <Link href="/privacy" className="text-xs text-white/50 hover:text-white transition-colors">
               Privacy Policy
             </Link>
         </div>
