@@ -171,7 +171,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex space-x-4">
-            <Link href="https://galacti.org//sitemap" className="text-xs text-white/50 hover:text-white transition-colors">
+            <Link href="https://galacti.org/sitemap" className="text-xs text-white/50 hover:text-white transition-colors">
               Sitemap
             </Link>
             <Link href="/terms" className="text-xs text-white/50 hover:text-white transition-colors">
