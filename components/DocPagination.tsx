@@ -8,7 +8,7 @@ import { docsNav } from "@/lib/docs-nav";
 const allItems = docsNav.flatMap((section) => section.items);
 
 export default function DocPagination() {
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/\/$/, "") || "/";
   const index = allItems.findIndex((item) => item.href === pathname);
 
   if (index === -1) return null;

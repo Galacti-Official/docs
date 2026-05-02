@@ -7,7 +7,7 @@
     "build": "next build",
     "postbuild": "npx pagefind --site out",
     "preview": "npx serve out",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler pages deploy out --project-name docs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
