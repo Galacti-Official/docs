@@ -83,7 +83,7 @@ export default function DocSidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden md:block sticky top-[4.5rem] h-[calc(100vh-4.5rem)] w-60 shrink-0 overflow-y-auto border-r border-white/10">
+      <aside className="dashboard-scrollbar hidden md:block sticky top-[4.5rem] h-[calc(100vh-4.5rem)] w-60 shrink-0 overflow-y-auto border-r border-white/10">
         {nav}
       </aside>
 
@@ -107,7 +107,7 @@ export default function DocSidebar() {
 
       {/* Mobile sidebar */}
       <aside
-        className={`fixed left-0 top-[var(--navbar-height)] bottom-0 z-50 w-72 overflow-y-auto bg-zinc-950 border-r border-white/10 transition-transform duration-200 md:hidden ${
+        className={`dashboard-scrollbar fixed left-0 top-[var(--navbar-height)] bottom-0 z-50 w-72 overflow-y-auto bg-zinc-950 border-r border-white/10 transition-transform duration-200 md:hidden ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

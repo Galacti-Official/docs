@@ -121,7 +121,7 @@ export default function SearchModal({ onClose }: Props) {
 
         {/* Results */}
         {results.length > 0 ? (
-          <ul ref={listRef} className="max-h-[60vh] overflow-y-auto py-1">
+          <ul ref={listRef} className="dashboard-scrollbar max-h-[60vh] overflow-y-auto py-1">
             {results.map((entry, i) => (
               <li key={entry.href}>
                 <button

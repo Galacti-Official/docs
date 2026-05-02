@@ -46,7 +46,7 @@ export default function TableOfContents() {
   if (headings.length === 0) return null;
 
   return (
-    <aside className="hidden xl:block sticky top-[var(--navbar-height)] h-[calc(100vh-var(--navbar-height))] w-52 shrink-0 overflow-y-auto border-l border-white/10 px-5 py-8">
+    <aside className="dashboard-scrollbar hidden xl:block sticky top-[var(--navbar-height)] h-[calc(100vh-var(--navbar-height))] w-52 shrink-0 overflow-y-auto border-l border-white/10 px-5 py-8">
       <p className="mb-3 font-subheading text-[10px] uppercase tracking-[0.18em] text-white/40">
         On this page
       </p>
