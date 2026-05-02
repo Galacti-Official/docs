@@ -1,0 +1,149 @@
+export const metadata = {
+  title: "Andromeda API — Galacti Docs",
+  description: "Programmatic access to the Galacti platform via the Andromeda API.",
+};
+
+# Andromeda API
+
+The Andromeda API is a REST API that gives you full programmatic access to Galacti services. All responses are JSON.
+
+## Base URL
+
+```
+https://api.galacti.org/v1
+```
+
+## Authentication
+
+Include your API key as a Bearer token in every request:
+
+```bash
+curl https://api.galacti.org/v1/ping \
+  -H "Authorization: Bearer gal_your_key_here"
+```
+
+> API keys can be generated and revoked from **Settings → API Keys** in the [dashboard](https://dashboard.galacti.org). Never commit your key to a repository.
+
+## Rate limits
+
+<DataTable
+  columns={["Plan", { label: "Requests per minute", align: "right" }]}
+  rows={[
+    ["Free", "60"],
+    ["Pro", "600"],
+    ["Organization", "6 000"],
+  ]}
+/>
+
+When a rate limit is exceeded, the API returns `429 Too Many Requests` with a `Retry-After` header indicating how many seconds to wait.
+
+## Errors
+
+All errors follow the same shape:
+
+```json
+{
+  "error": {
+    "code": "not_found",
+    "message": "The requested resource does not exist.",
+    "status": 404
+  }
+}
+```
+
+### Common error codes
+
+<DataTable
+  columns={["Code", { label: "Status", align: "center" }, "Meaning"]}
+  rows={[
+    [<code>unauthorized</code>, "401", "Missing or invalid API key"],
+    [<code>forbidden</code>, "403", "Valid key, insufficient permissions"],
+    [<code>not_found</code>, "404", "Resource does not exist"],
+    [<code>rate_limited</code>, "429", "Too many requests"],
+    [<code>internal</code>, "500", "Something went wrong on our end"],
+  ]}
+/>
+
+## Endpoints
+
+### `GET /ping`
+
+Health check. Returns the API version and your nearest region.
+
+<ApiEndpoint
+  method="GET"
+  path="/v1/ping"
+  baseUrl="https://api.galacti.org"
+  headers={{ Authorization: "Bearer YOUR_API_KEY", Accept: "*/*" }}
+  responses={[
+    {
+      status: 200,
+      label: "OK",
+      body: { ok: true, version: "1.0", region: "eu-west-1" },
+    },
+    {
+      status: 401,
+      label: "Unauthorized",
+      body: { error: { code: "unauthorized", message: "Missing or invalid API key.", status: 401 } },
+    },
+    {
+      status: 500,
+      label: "Internal Server Error",
+      body: { error: { code: "internal", message: "Something went wrong on our end.", status: 500 } },
+    },
+  ]}
+/>
+
+---
+
+### `GET /me`
+
+Returns details about the account associated with the current API key.
+
+<ApiEndpoint
+  method="GET"
+  path="/v1/me"
+  baseUrl="https://api.galacti.org"
+  headers={{ Authorization: "Bearer YOUR_API_KEY", Accept: "*/*" }}
+  responses={[
+    {
+      status: 200,
+      label: "OK",
+      body: {
+        id: "usr_01abc",
+        username: "yourname",
+        email: "you@example.com",
+        plan: "pro",
+        created_at: "2025-01-15T12:00:00Z",
+      },
+    },
+    {
+      status: 401,
+      label: "Unauthorized",
+      body: { error: { code: "unauthorized", message: "Missing or invalid API key.", status: 401 } },
+    },
+    {
+      status: 403,
+      label: "Forbidden",
+      body: { error: { code: "forbidden", message: "Valid key, insufficient permissions.", status: 403 } },
+    },
+    {
+      status: 500,
+      label: "Internal Server Error",
+      body: { error: { code: "internal", message: "Something went wrong on our end.", status: 500 } },
+    },
+  ]}
+/>
+
+## SDKs
+
+Official SDKs are in development. In the meantime, any HTTP client works. Examples throughout the docs use `curl` and plain `fetch`.
+
+```ts
+const res = await fetch("https://api.galacti.org/v1/ping", {
+  headers: {
+    Authorization: `Bearer ${process.env.GALACTI_API_KEY}`,
+  },
+});
+const data = await res.json();
+```

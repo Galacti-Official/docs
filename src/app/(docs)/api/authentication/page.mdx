@@ -1,0 +1,27 @@
+export const metadata = {
+  title: "Authentication — Galacti Docs",
+  description: "How to authenticate with the Andromeda API.",
+};
+
+# Authentication
+
+> This page is a work in progress. More detail is coming soon.
+
+All requests to the Andromeda API must include your API key as a Bearer token in the `Authorization` header.
+
+```bash
+curl https://api.galacti.org/v1/ping \
+  -H "Authorization: Bearer gal_your_key_here"
+```
+
+## Getting an API key
+
+1. Sign in to the [dashboard](https://dashboard.galacti.org)
+2. Go to **Settings → API Keys**
+3. Click **Generate new key** and copy it immediately — it won't be shown again
+
+> Never commit your API key to a repository or expose it in client-side code.
+
+## Revoking a key
+
+Keys can be revoked at any time from **Settings → API Keys**. Revoked keys stop working immediately.

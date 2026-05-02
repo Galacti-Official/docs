@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+	--background: #000000;
+	--foreground: #f4f7fb;
+	--accent: #523C90;
+	--font-body: "Inter", sans-serif;
+	--font-subheading: "IBM Plex Mono", monospace;
+	--navbar-height: 0px;
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-accent: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #000000;
+		--foreground: #f4f7fb;
+		--accent: #523C90;
+	}
+}
+
+html {
+	background: linear-gradient(180deg, #040714 0%, #02040a 55%, #010208 100%);
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-body);
+	position: relative;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+.font-subheading {
+	font-family: var(--font-subheading);
+}
+
+.starfield {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.starfield-layer {
+	position: absolute;
+	inset: -4%;
+}
+
+.starfield-layer-far {
+	opacity: 0.72;
+}
+
+.starfield-layer-mid {
+	opacity: 0.88;
+}
+
+.starfield-layer-near {
+	opacity: 1;
+}
+
+.starfield-star {
+	position: absolute;
+	display: block;
+	border-radius: 9999px;
+	background: rgb(var(--star-color));
+	opacity: var(--star-opacity);
+	animation:
+		star-float var(--star-duration) ease-in-out infinite alternate,
+		star-pulse calc(var(--star-duration) * 0.72) steps(5, end) infinite;
+	animation-delay: var(--star-delay), calc(var(--star-delay) * 0.65);
+	will-change: transform, opacity;
+}
+
+main,
+footer {
+	position: relative;
+	z-index: 1;
+}
+
+main {
+	padding-top: var(--navbar-height);
+}
+
+.hero-terminal-cursor {
+	display: inline-block;
+	margin-left: 0.08em;
+	animation: terminal-cursor-blink 0.95s steps(1, end) infinite;
+}
+
+@keyframes star-float {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(var(--star-drift-x), var(--star-drift-y), 0);
+	}
+}
+
+@keyframes star-pulse {
+	from {
+		opacity: calc(var(--star-opacity) * 0.45);
+	}
+
+	50% {
+		opacity: calc(var(--star-opacity) * 1.18);
+	}
+
+	to {
+		opacity: calc(var(--star-opacity) * 0.82);
+	}
+}
+
+@keyframes terminal-cursor-blink {
+	0%,
+	45% {
+		opacity: 1;
+	}
+	46%,
+	100% {
+		opacity: 0;
+	}
+}
+
+/* Docs prose overrides */
+.docs-prose {
+  --tw-prose-body: rgba(244, 247, 251, 0.75);
+  --tw-prose-headings: rgb(244, 247, 251);
+  --tw-prose-bold: rgb(244, 247, 251);
+  --tw-prose-links: #9b85d4;
+  --tw-prose-code: rgba(244, 247, 251, 0.9);
+  --tw-prose-pre-bg: rgba(255, 255, 255, 0.04);
+  --tw-prose-pre-code: rgba(244, 247, 251, 0.85);
+  --tw-prose-quotes: rgba(244, 247, 251, 0.65);
+  --tw-prose-quote-borders: #523C90;
+  --tw-prose-captions: rgba(244, 247, 251, 0.45);
+  --tw-prose-hr: rgba(255, 255, 255, 0.08);
+  --tw-prose-bullets: rgba(244, 247, 251, 0.25);
+  --tw-prose-counters: rgba(244, 247, 251, 0.45);
+  --tw-prose-th-borders: rgba(255, 255, 255, 0.15);
+  --tw-prose-td-borders: rgba(255, 255, 255, 0.08);
+}
+
+.docs-prose pre {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  margin: 0;
+  overflow-x: auto;
+}
+
+/* shiki-highlighted code blocks */
+.code-block-shiki {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.code-block-shiki pre {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 1rem 1.25rem !important;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.code-block-shiki code {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: inherit;
+}
+
+.docs-prose code:not(pre code) {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.3rem;
+  padding: 0.15em 0.4em;
+  font-size: 0.875em;
+}
+
+.docs-prose code:not(pre code)::before,
+.docs-prose code:not(pre code)::after {
+  content: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.starfield-star {
+		animation: none;
+	}
+
+	.hero-terminal-cursor {
+		animation: none;
+		opacity: 1;
+	}
+}

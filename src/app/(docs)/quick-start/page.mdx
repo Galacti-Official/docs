@@ -1,0 +1,52 @@
+export const metadata = {
+  title: "Quick Start — Galacti Docs",
+  description: "Get up and running with Galacti in minutes.",
+};
+
+# Quick Start
+
+This guide walks you through creating a Galacti account, accessing the dashboard, and making your first API request.
+
+## 1. Create an account
+
+Go to [dashboard.galacti.org](https://dashboard.galacti.org) and sign up. You'll receive a confirmation email — click the link to activate your account.
+
+## 2. Get your API key
+
+Once logged in, navigate to **Settings → API Keys** and generate a new key. Store it somewhere safe — it won't be shown again.
+
+```bash
+export GALACTI_API_KEY="gal_your_key_here"
+```
+
+## 3. Make your first request
+
+```bash
+curl https://api.galacti.org/v1/ping \
+  -H "Authorization: Bearer $GALACTI_API_KEY"
+```
+
+A successful response looks like this:
+
+```json
+{
+  "ok": true,
+  "version": "1.0",
+  "region": "eu-west-1"
+}
+```
+
+## 4. Explore the platform
+
+Now that your account is set up, explore what's available:
+
+- **[Galacti Labs](/platform/labs)** — experimental compute environments
+- **[Galacti Atlas](/platform/atlas)** — data exploration and mapping
+- **[Game Server Hosting](/platform/hosting)** — deploy a game server in seconds
+- **[Andromeda API](/api)** — full API reference
+
+## Next steps
+
+> If you run into any issues during setup, the [Support Center](https://support.galacti.org) has step-by-step troubleshooting guides.
+
+Once you're set up, we recommend reading the [Platform Overview](/platform) to understand how the different components work together.

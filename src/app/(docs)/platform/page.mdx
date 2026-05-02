@@ -1,0 +1,86 @@
+export const metadata = {
+  title: "Platform Overview — Galacti Docs",
+  description: "An overview of the Galacti platform and its components.",
+};
+
+# Platform Overview
+
+The Galacti platform is a collection of open infrastructure tools built around a single principle: open experimentation for everyone. Each component is independently usable but designed to work together.
+
+## Components
+
+### Galacti Labs
+
+A sandboxed compute environment for running experiments, training small models, and testing ideas without provisioning your own infrastructure.
+
+- GPU and CPU compute available on-demand
+- Persistent storage per project
+- Pre-installed scientific Python stack
+- Shareable experiment notebooks
+
+[Read the Labs docs →](/platform/labs)
+
+---
+
+### Galacti Atlas
+
+A geospatial data exploration tool for visualizing, querying, and sharing datasets tied to physical locations.
+
+- Import GeoJSON, CSV with coordinates, or connect via API
+- Layer-based map editor
+- Public and private dataset sharing
+
+[Read the Atlas docs →](/platform/atlas)
+
+---
+
+### Game Server Hosting
+
+Managed game servers with one-click deployment. Supports the most popular games and custom server binaries.
+
+- Automatic backups every 6 hours
+- DDoS protection included
+- SSH access and full file manager
+
+[Read the Hosting docs →](/platform/hosting)
+
+---
+
+### Andromeda API
+
+The unified API layer that gives you programmatic access to all Galacti services. Every platform feature is accessible via REST.
+
+[Read the API docs →](/api)
+
+---
+
+## Architecture
+
+All platform components share a common authentication layer. Your API key works across every service — you don't need separate credentials for Labs, Atlas, or Hosting.
+
+```
+Your application
+      │
+      ▼
+Andromeda API  ──────────────────────────────┐
+      │                                      │
+      ├── /labs/*     →  Galacti Labs        │
+      ├── /atlas/*    →  Galacti Atlas       │  Auth layer
+      └── /hosting/*  →  Game Server Hosting │
+                                             │
+                      ◄───────────────────────┘
+```
+
+## Availability
+
+<DataTable
+  columns={["Component", "Status", "Region"]}
+  rows={[
+    ["Galacti Labs", "Beta", "EU West"],
+    ["Galacti Atlas", "Generally Available", "Global"],
+    ["Game Server Hosting", "Generally Available", "EU, NA"],
+    ["Andromeda API", "Generally Available", "Global"],
+  ]}
+/>
+
+Current platform status is always available at [status.galacti.org](https://status.galacti.org).
