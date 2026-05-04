@@ -83,7 +83,7 @@ export default function DocSidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="dashboard-scrollbar hidden md:block sticky top-[4.5rem] h-[calc(100vh-4.5rem)] w-60 shrink-0 overflow-y-auto border-r border-white/10">
+      <aside className="dashboard-scrollbar hidden md:block sticky top-[4.5rem] h-[calc(100vh-4.5rem)] w-60 shrink-0 overflow-y-auto bg-black border-r border-white/10">
         {nav}
       </aside>
 

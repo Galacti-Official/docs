@@ -3,39 +3,11 @@ import TableOfContents from "@/components/TableOfContents";
 import DocPagination from "@/components/DocPagination";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { FlaskConical, Map, Server, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Introduction — Galacti Docs",
   description: "Welcome to the Galacti documentation.",
 };
-
-const components = [
-  {
-    name: "Galacti Labs",
-    desc: "Experimental compute and research environment",
-    href: "/platform/labs",
-    icon: FlaskConical,
-  },
-  {
-    name: "Galacti Atlas",
-    desc: "Mapping and data exploration tools",
-    href: "/platform/atlas",
-    icon: Map,
-  },
-  {
-    name: "Game Server Hosting",
-    desc: "Affordable, managed game servers",
-    href: "/platform/hosting",
-    icon: Server,
-  },
-  {
-    name: "Andromeda API",
-    desc: "Unified programmatic access to Galacti services",
-    href: "/api",
-    icon: Zap,
-  },
-];
 
 export default function HomePage() {
   return (
@@ -71,26 +43,6 @@ export default function HomePage() {
                 {" "}— integrate with our API
               </li>
             </ul>
-
-            <h2 id="platform-components">Platform components</h2>
-          </div>
-
-          <div className="not-prose xl:max-w-3xl mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {components.map(({ name, desc, href, icon: Icon }) => (
-              <Link
-                key={name}
-                href={href}
-                className="group flex items-start gap-4 rounded-lg border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:border-white/20 hover:bg-white/[0.06]"
-              >
-                <span className="mt-0.5 rounded-md border border-white/10 bg-white/5 p-2 text-white/60 group-hover:text-white/90 transition">
-                  <Icon className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-sm font-medium text-white/90">{name}</p>
-                  <p className="mt-0.5 text-sm text-white/45">{desc}</p>
-                </div>
-              </Link>
-            ))}
           </div>
 
           <div className="prose prose-invert docs-prose max-w-none xl:max-w-3xl mt-8">
@@ -98,7 +50,7 @@ export default function HomePage() {
             <p>
               If something isn&apos;t covered here, check the{" "}
               <a href="https://support.galacti.org">Support Center</a> or join us on{" "}
-              <a href="https://discord.gg/galacti">Discord</a>.
+              <a href="https://discord.gg/QmB9agMj6t">Discord</a>.
             </p>
           </div>
           <DocPagination />
